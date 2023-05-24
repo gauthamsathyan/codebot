@@ -1,9 +1,7 @@
 {% extends 'base.html' %}
-
 {% block content %}
 
 {% if user.is_authenticated %}
-
 
 {% if response %}
 <pre>
@@ -16,14 +14,12 @@
 <br/><br/>
 
 
-
-
-<form method=POST action="{% url 'home' %}">
+<form method=POST action="{% url 'suggest' %}">
 	{% csrf_token %}
 
 <div class="mb-3">
   <textarea class="form-control" name="code" 
-  placeholder="Have A.I. Fix My Code" rows="3">{{ code }}</textarea>
+  placeholder="Have A.I. Suggest Code" rows="3">{{ code }}</textarea>
 </div>
 
 <select class="form-select" name="lang">
@@ -65,12 +61,12 @@ else:
 
 
 
-<form method=POST action="{% url 'home' %}">
+<form method=POST action="{% url 'suggest' %}">
 	{% csrf_token %}
 
 <div class="mb-3">
   <textarea class="form-control" name="code" 
-  placeholder="Have A.I. Fix My Code" rows="3"></textarea>
+  placeholder="Have A.I. Suggest Code" rows="3"></textarea>
 </div>
 
 <select class="form-select" name="lang">
@@ -94,7 +90,6 @@ else:
 <div class="col-md-6 offset-md-3">
 	<h1>Login</h1>
 	<br/>
-	
 	<form method="POST" action="{% url 'login' %}">
 		{% csrf_token %}
 		<div class="form-group">
@@ -110,6 +105,7 @@ else:
 	</form>
 </div>
 {% endif %}
+
 {% endblock %}
 
 
